@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1 id="welcome-heading">Welcome to HRS</h1>
+<script>
+  $(document).ready(function () {
+    // Extract the userId from the URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('userid');
+
+    if (userId) {
+      // Make an AJAX request to fetch the full name
+      $.ajax({
+        url: `/api/v1/getfullname/${userId}`,
+        method: 'GET',
+        success: function (response) {
+          // Update the heading with the user's full name
+          $('#welcome-heading').text(`Welcome to HRS, ${response}`);
+        },
+        error: function () {
+          console.error('Failed to fetch the full name.');
+        }
+      });
+    } else {
+      console.error('User ID not found in the URL.');
+    }
+  });
+</script>
+</body>
+</html>

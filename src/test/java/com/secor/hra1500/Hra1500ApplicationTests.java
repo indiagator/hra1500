@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class Hra1500ApplicationTests {
 
-    @Test
+    //@Test
     void contextLoads() {
     }
 

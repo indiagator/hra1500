@@ -6,11 +6,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CredentialLoginView {
-
+public class CredentialView
+{
     private String email;
     private String phone;
     private String password;
-
-
 }
